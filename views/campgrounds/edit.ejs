@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelp Camp - Edit Campground</title>
+</head>
+<body>
+    <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+        <div>
+            <label for="title">Campground Name:</label>
+            <input id="title" name="campground[title]" type="text" value="<%=campground.title%>" placeholder="Campground name">
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input id="location" name="campground[location]" type="text" value="<%=campground.location%>" placeholder="City, State">
+        </div>
+        <input type="submit" value="Update">
+    </form>
+    <a href="/campgrounds/<%=campground._id%>">Cancel</a>
+
+    <footer>
+        <a href="/campgrounds">Home</a>
+    </footer>
+</body>
+</html>
