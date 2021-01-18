@@ -2,29 +2,29 @@
 <div class="row">
   <h2 class="text-center">Edit Campground</h2>
   <div class="col-6 offset-3">
-    <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+    <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" class="validated-form" novalidate>
       <div class="mb-2">
         <label class="form-label" for="title">Campground Name:</label>
-        <input class="form-control" id="title" name="campground[title]" type="text" placeholder="Campground name" value="<%=campground.title%>">
+        <input class="form-control" id="title" name="campground[title]" type="text" placeholder="Campground name" value="<%=campground.title%>" required>
       </div>
       <div class="mb-2">
         <label class="form-label" for="location">Location:</label>
-        <input class="form-control" id="location" name="campground[location]" type="text" placeholder="City, State" value="<%=campground.location%>">
+        <input class="form-control" id="location" name="campground[location]" type="text" placeholder="City, State" value="<%=campground.location%>" required>
       </div>
       <div class="mb-2">
         <label for="price" class="form-label">Campground Price:</label>
         <div class="input-group mb-2">
           <span class="input-group-text" id="price-label">$</span>
-          <input type="text" name="campground[price]" class="form-control" placeholder="99.99" aria-label="price" aria-describedby="price-label" value="<%=campground.price%>">
+          <input type="text" name="campground[price]" class="form-control" placeholder="99.99" aria-label="price" aria-describedby="price-label" value="<%=campground.price%>" required>
         </div>
       </div>
       <div class="mb-2">
         <label class="form-label" for="description">Description:</label>
-        <textarea class="form-control" id="description" name="campground[description]"><%=campground.description%></textarea>
+        <textarea class="form-control" id="description" name="campground[description]" required><%=campground.description%></textarea>
       </div>
       <div class="mb-2">
         <label class="form-label" for="image">Image URL:</label>
-        <input class="form-control" id="image" name="campground[image]" type="text" placeholder="http://www.example.com/image.jpeg" value="<%=campground.image%>">
+        <input class="form-control" id="image" name="campground[image]" type="text" placeholder="http://www.example.com/image.jpeg" value="<%=campground.image%>" required>
       </div>
       <input class="btn btn-primary" type="submit" value="Update">
       <a href="/campgrounds/<%=campground._id%>" class="btn btn-warning ml-3">Cancel</a>

@@ -2,32 +2,33 @@
 <div class="row">
   <h2 class="text-center">Add a Campground</h2>
   <div class="col-6 offset-3">
-    <form action="/campgrounds" method="POST">
+    <form class="validated-form" action="/campgrounds" method="POST" novalidate>
       <div class="mb-2">
         <label class="form-label" for="title">Campground Name:</label>
-        <input class="form-control" id="title" name="campground[title]" type="text" placeholder="Campground name">
+        <input class="form-control" id="title" name="campground[title]" type="text" placeholder="Campground name" required>
       </div>
       <div class="mb-2">
         <label class="form-label" for="location">Location:</label>
-        <input class="form-control" id="location" name="campground[location]" type="text" placeholder="City, State">
+        <input class="form-control" id="location" name="campground[location]" type="text" placeholder="City, State" required>
       </div>
       <div class="mb-2">
         <label for="price" class="form-label">Campground Price:</label>
         <div class="input-group mb-2">
           <span class="input-group-text" id="price-label">$</span>
-          <input type="text" name="campground[price]" class="form-control" placeholder="99.99" aria-label="price" aria-describedby="price-label">
+          <input type="text" name="campground[price]" class="form-control" placeholder="99.99" aria-label="price" aria-describedby="price-label" required>
         </div>
       </div>
       <div class="mb-2">
         <label class="form-label" for="description">Description:</label>
-        <textarea class="form-control" id="description" name="campground[description]"></textarea>
+        <textarea class="form-control" id="description" name="campground[description]" required></textarea>
       </div>
       <div class="mb-2">
         <label class="form-label" for="image">Image URL:</label>
-        <input class="form-control" id="image" name="campground[image]" type="text" placeholder="http://www.example.com/image.jpeg">
+        <input class="form-control" id="image" name="campground[image]" type="text" placeholder="http://www.example.com/image.jpeg" required>
       </div>
       <input class="btn btn-primary" type="submit" value="Add Campground">
       <a href="/campgrounds" class="btn btn-warning">Cancel</a>
     </form>
   </div>
 </div>
+
