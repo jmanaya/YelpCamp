@@ -1,22 +1,48 @@
 <% layout('layouts/boilerplate'); %>
 <div class="row">
-  <div class="col-6 offset-3">
-    <div class="card mb-3">
-      <img src="<%=campground.image%>" class="card-img-top" alt="<%=campground.title%>">
-      <div class="card-body">
-        <h5 class="card-title"><%=campground.title%></h5>
-        <p class="card-text"><%=campground.description%></p>
+	<div class="col-6">
+		<div class="card mb-3">
+			<img src="<%=campground.image%>" class="card-img-top" alt="<%=campground.title%>">
+			<div class="card-body">
+				<h5 class="card-title"><%=campground.title%></h5>
+				<p class="card-text"><%=campground.description%></p>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item text-muted"><%=campground.location%></li>
+				<li class="list-group-item">$<%=campground.price%> per night</li>
+			</ul>
+			<div class="card-body">
+				<a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-primary">Edit</a>
+				<form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=delete" method="POST">
+ 					<input class="btn btn-danger" type="submit" value="Delete">
+				</form>
+			</div>
+		</div>
+  </div>
+  <div class="col-6">
+    <h2>What Others Are Saying:</h2>
+      <% for (let review of campground.reviews) { %>
+        <div class="card mb-1">
+          <div class="card-body">
+            <h5 class="card-title"><strong>Rating: </strong><%=review.rating%> out of 5</p>
+            <p class=""><strong>Review: </strong><%=review.body%></p>
+            <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+              <input type="submit" class="btn btn-sm btn-danger" value="Delete Review">
+            </form>
+          </div>
+        </div>
+      <% } %>
+    <h2>Leave a Rating:</h2>
+    <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="validated-form mb-2" novalidate>
+      <div class="mb3">
+        <label for="rating" class="form-label">Rating</label>
+        <input id="rating" name="review[rating]" class="form-range" type="range" min="0" max="5" step="1" required>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-muted"><%=campground.location%></li>
-        <li class="list-group-item">$<%=campground.price%> per night</li>
-      </ul>
-      <div class="card-body">
-        <a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-primary">Edit</a>
-        <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=delete" method="POST">
-          <input class="btn btn-danger" type="submit" value="Delete">
-        </form>
+      <div class="mb-3">
+        <label for="body" class="form-label">Review</label>
+        <textarea name="review[body]" id="body" class="form-control" cols="30" rows="4" required></textarea>
       </div>
-    </div>
+      <input class="btn btn-success" type="submit" value="Submit">
+    </form>
   </div>
 </div>

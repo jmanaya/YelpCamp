@@ -20,13 +20,13 @@
       let forms = document.querySelectorAll('.validated-form');
       
       Array.from(forms).forEach(function (form) {
-        form.AddEventListener('submit', function (event) {
+        form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
           }
-    
-          form.classList.add('was-wavlidated');
+
+          form.classList.add('was-validated');
         }, false)
       })
     })()
