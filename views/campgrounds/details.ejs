@@ -33,8 +33,8 @@
         </div>
       <% } %>
     <h2>Leave a Rating:</h2>
-    <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="validated-form mb-2" novalidate>
-      <div class="mb3">
+    <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="validated-form mb-3" novalidate>
+      <div class="mb-3">
         <label for="rating" class="form-label">Rating</label>
         <input id="rating" name="review[rating]" class="form-range" type="range" min="0" max="5" step="1" required>
       </div>
