@@ -7,7 +7,7 @@ module.exports.descriptors = [
     'Tumbling',
     'Silent',
     'Redwood',
-    'Bullfrog',
+    'Wolverine',
     'Maple',
     'Misty',
     'Elk',
