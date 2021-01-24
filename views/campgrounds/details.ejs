@@ -43,9 +43,10 @@
 		</div>
   </div>
   <div class="col-6">
-      <h2>
+      <div id='map' class="mb-1"></div>
+      <h3>
       <%= campground.reviews.length > 0 ? 'What Others Are Saying:' : 'No reviews yet...' %>
-      </h2>
+      </h3>
       <% for (let review of campground.reviews) { %>
         <div class="card mb-1">
           <div class="card-body">
@@ -63,7 +64,7 @@
         </div>
       <% } %>
     <% if (currentUser) { %>
-    <h2>Leave a Review:</h2>
+    <h3>Leave a Review:</h3>
     <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="validated-form mb-3" novalidate>
       <fieldset class="starability-basic h4 mb-2">
         <legend>Rating:</legend>
@@ -88,3 +89,9 @@
     <% } %>
   </div>
 </div>
+
+<script>
+  const mapboxToken = "<%- process.env.MAPBOX_TOKEN %>";
+  const camp = <%- JSON.stringify(campground) %>;
+</script>
+<script src="/scripts/detailsPageMap.js"></script>
